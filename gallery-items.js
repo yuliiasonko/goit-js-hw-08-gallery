@@ -109,28 +109,28 @@ function openModal(e) {
   }
 }
 
-
-function onClickClose(e) {
- e.preventDefault(); 
+function onClickCloseWindow() {
   refs.lightbox.classList.remove("is-open");
   refs.lightbox__image.src = '';
   refs.lightbox__image.alt = '';
+
+}
+
+function onClickClose(e) {
+ e.preventDefault(); 
+onClickCloseWindow();
 
 }
 
 function closeModal(e) {
   if (e.target === refs.lightbox__image) {
-  refs.lightbox.classList.remove("is-open");
-  refs.lightbox__image.src = '';
-  refs.lightbox__image.alt = '';
+onClickCloseWindow();
   }
 }
 
 function closeModalByEsc() {
   window.removeEventListener('keydown', onPressEsc);
-  refs.lightbox.classList.remove("is-open");
-  refs.lightbox__image.src = '';
-  refs.lightbox__image.alt = '';
+ onClickCloseWindow();
 }
 
 function onPressEsc(e) {
